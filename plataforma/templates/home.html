@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static "css/css.css" %}"> 
+    <script src="{% static "js/custom.js" %}"></script>  
+{% endblock  %}
+
+{% block 'titulo' %}Home{% endblock  %}
+
+{% block 'conteudo' %}
+<div style="margin: 10px">    
+    <h1>Bem vindo ao Sistema!</h1>
+    <h2>Página em construção!</h2>
+</div>
+<img src="{% static "img/BMW-M4.jpg" %}" alt="BMW">
+<hr>
+<div class='messagem'>
+{% if messages %}
+    {% for i in messages %}
+        <div class="alert {{i.tags}}" role="alert">
+            {{i}}
+        </div>
+    {% endfor %}   
+{% endif %}       
+</div>
+{% endblock  %}
