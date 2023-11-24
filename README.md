@@ -92,5 +92,10 @@ pip install python-decouple
 # Install fake
 pip install Faker
 
+# Install pymsql
+pip install pymysql
+
+
+
 # rodando script para inserir dados fakes
 python3 utils/data_livros.py
