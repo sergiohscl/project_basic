@@ -3,8 +3,8 @@
 {% load static %}
 
 {% block 'head' %} 
-    <link rel="stylesheet" href="{% static "css/css.css" %}">
-    <script src="{% static "js/custom.js" %}"></script>        
+    <link rel="stylesheet" href="{% static "css/css.css" %}"> 
+    <script src="{% static "js/custom.js" %}"></script>       
 {% endblock  %} 
 
 {% block 'titulo' %}Login{% endblock  %}
@@ -42,7 +42,7 @@
                  <div style="margin-top: 20px">
                     <button type="button" class="btn btn-secondary">
                         <i class="fa fa-google"></i>
-                        <a class="white" href="#">
+                        <a class="white" href="{% url 'social:begin' 'google-oauth2' %}">
                             Login com Google
                         </a>
                     </button>
