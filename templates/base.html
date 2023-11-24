@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     {% block 'head' %}{% endblock  %}
@@ -19,23 +18,21 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto"> 
 
-          {% comment %} {% if user.is_authenticated %}       {% endcomment %}
+          {% if user.is_authenticated %}      
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
              <!-- Verifica se um avatar existe -->
-             {% comment %} {% if user.avatar %}
+             {% if user.avatar %}
               <img src="{{user.avatar.url}}" class="rounded-circle" style="width: 30px; rounded-circle: 50%;" alt="Avatar"> 
              {% else %}
             {{user.username}}
-            {% endif %} {% endcomment %}
-                Dropdown link
+            {% endif %}
             </a>
             <div class="dropdown-menu">              
-              <a style='margin:10px'; 'color: red' href="#" class="">Sair</a>
+              <a style='margin:10px'; 'color: red' href="{% url "sair" %}" class="">Sair</a>
             </div>
           </li>
-          {% comment %} {% endif %}  {% endcomment %}
-
+          {% endif %} 
         </ul>
       </div>
     </nav>
