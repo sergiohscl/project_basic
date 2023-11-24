@@ -81,7 +81,7 @@ git remote add origin URL_DO_GIT
 python manage.py startapp <nomeapp>
 
 # Settings Auth User Model - abaixo do database
-AUTH_USER_MODEL = "users.CustomUser"
+AUTH_USER_MODEL = "<nomeapp>.CustomUser"
 
 # Install Pillow
 pip install Pillow
@@ -95,7 +95,17 @@ pip install Faker
 # Install pymsql
 pip install pymysql
 
-
-
 # rodando script para inserir dados fakes
 python3 utils/data_livros.py
+
+## configuração do email no settings
+    # Email
+    DEFAULT_FROM_EMAIL = 'sergiohscl2@gmail.com'
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+    EMAIL_PORT = config('EMAIL_PORT')
+    EMAIL_HOST = config('EMAIL_HOST')
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
