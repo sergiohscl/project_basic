@@ -1,3 +1,19 @@
+# Projeto Django Básico
+## Objetivo do projeto e implementar conceitos básicos, como:
+#### Criar tela de login e cadastro;
+#### Criar login social (google);
+#### Criar Home para enviar um formulario;
+#### Criar navbar com avatar se existir;
+#### Criar mensagens de sucessos e erros;
+#### Implementar o signals para disparar email de boas vindas;
+#### Criar conexão com DB em mysql;
+#### Criar script com dados fake para popular o DB;
+#### Criar apis usando DRF;
+#### Implementar o swagger;
+#### Criar testes usando testCase e o APITestCase do DRF; 
+
+<hr>
+
 ## Documentação do django
 https://www.djangoproject.com/
 
