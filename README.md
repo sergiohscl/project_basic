@@ -36,7 +36,7 @@ https://www.djangoproject.com/
     python manage.py createsuperuser
     python manage.py changepassword USERNAME
 
-# configure settings template, arquivo estático e messages.
+# configure settings
 ## imports
     import os
     from django.contrib.messages import constants
@@ -114,7 +114,7 @@ https://www.djangoproject.com/
 ## login social (google)
 https://umcodigo.com/autenticacao-com-google-no-django/
 
-# DRF - Django Rest-Framework
+## DRF - Django Rest-Framework
     REST_FRAMEWORK = {
         'DEFAULT_AUTHENTICATION_CLASSES': (
             # 'rest_framework.authentication.SessionAuthentication',
@@ -184,3 +184,6 @@ https://umcodigo.com/autenticacao-com-google-no-django/
         path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
         path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     ]
+
+## Rodando os testes
+    python manage.py test <nome app>/tests
