@@ -111,7 +111,76 @@ https://www.djangoproject.com/
     EMAIL_PORT = config('EMAIL_PORT')
     EMAIL_HOST = config('EMAIL_HOST')
 
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 ## login social (google)
 https://umcodigo.com/autenticacao-com-google-no-django/
+
+# DRF - Django Rest-Framework
+    REST_FRAMEWORK = {
+        'DEFAULT_AUTHENTICATION_CLASSES': (
+            # 'rest_framework.authentication.SessionAuthentication',
+            'rest_framework.authentication.TokenAuthentication',
+        ),
+        'DEFAULT_PERMISSION_CLASSES': (
+            'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        ),
+        'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',  # noqa E501
+        'PAGE_SIZE': 2,
+        'DEFAULT_THROTTLE_CLASSES': (
+            'rest_framework.throttling.AnonRateThrottle',
+            'rest_framework.throttling.UserRateThrottle',
+        ),
+        'DEFAULT_THROTTLE_RATES': {
+            'anon': '5/minute',  # second, day, month, year
+            'user': '10/minute',
+        }
+    }
+
+## settings DRF
+    INSTALLED_APPS = [
+        'drf_yasg',
+        'django_filters',
+        'rest_framework',
+        'rest_framework.authtoken',
+    ]
+
+## install drf e filters
+    pip install drf-yasg
+    pip install django-filter
+
+## Implemente o swagger no settings
+    SWAGGER_SETTINGS = {
+        'USE_SESSION_AUTH': False,
+        'SECURITY_DEFINITIONS': {
+            "api_key": {
+                "type": "apiKey",
+                "name": "Authorization",
+                "in": "header"
+            },
+        }
+    }
+
+## implemente swagger arquivo urls 
+    schema_view = get_schema_view(
+        openapi.Info(
+            title="Snippets API",
+            default_version='v1',
+            description="Test description",
+            terms_of_service="https://www.google.com/policies/terms/",
+            contact=openapi.Contact(email="contact@snippets.local"),
+            license=openapi.License(name="BSD License"),
+        ),
+        public=True,
+        permission_classes=(permissions.DjangoModelPermissions,),
+    )
+
+## import bibliotecas urls - swagger e drf
+    from rest_framework import permissions
+    from drf_yasg.views import get_schema_view
+    from drf_yasg import openapi
+
+## configure url - swagger
+    urlpatterns = [
+        path('swagger<format>/', schema_view.without_ui(cache_timeout=0),name='schema-json'),
+        path('swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+        path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    ]
