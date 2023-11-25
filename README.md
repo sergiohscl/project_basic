@@ -6,6 +6,7 @@
 #### Criar navbar com avatar se existir;
 #### Criar mensagens de sucessos e erros;
 #### Implementar o signals para disparar email de boas vindas;
+#### Criar models customizada com upload de imagem;
 #### Criar conexão com DB em mysql;
 #### Criar script com dados fake para popular o DB;
 #### Criar apis usando DRF;
