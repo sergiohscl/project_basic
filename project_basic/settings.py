@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-7cx1^y#xu+fkr)ynau1q=5x+u(6js9(sxawf*n#0pjc4ticl_8" # noqa E501
+SECRET_KEY = "django-insecure-7cx1^y#xu+fkr)ynau1q=5x+u(6js9(sxawf*n#0pjc4ticl_8"  # noqa E501
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -93,14 +93,26 @@ WSGI_APPLICATION = "project_basic.wsgi.application"
 #         "NAME": BASE_DIR / "db.sqlite3",
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': config("DB_DATABASE"),
+#         'USER': config("DB_USER"),
+#         'PASSWORD': config("DB_PASSWORD"),
+#         'HOST': config("DB_LOCALHOST"),
+#         'PORT': '3306',
+#     }
+# }
+
+# conexão aws
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': config("DB_DATABASE"),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME':  config("DB_DATABASE"),
         'USER': config("DB_USER"),
         'PASSWORD': config("DB_PASSWORD"),
         'HOST': config("DB_LOCALHOST"),
-        'PORT': '3306',
+        'PORTA': '5432',
     }
 }
 
@@ -116,16 +128,16 @@ AUTH_USER_MODEL = "usuarios.CustomUser"
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", # noqa E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa E501
     },
     {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator", # noqa E501
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",  # noqa E501
     },
     {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator", # noqa E501
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",  # noqa E501
     },
     {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator", # noqa E501
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",  # noqa E501
     },
 ]
 
